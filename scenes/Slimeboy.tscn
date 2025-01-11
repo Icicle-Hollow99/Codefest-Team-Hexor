@@ -55,6 +55,7 @@ scale = Vector2(-1, 1)
 script = ExtResource("1_lbb2u")
 
 [node name="killzone" parent="." instance=ExtResource("1_wm472")]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 position = Vector2(1, -8)

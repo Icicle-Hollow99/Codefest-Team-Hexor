@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtxap173gbrf2"]
+
+[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_ojn4c"]
+[ext_resource type="Texture2D" uid="uid://bsub75y7tvx1y" path="res://assets/Shadow slime.png" id="2_2kiy7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtxrs"]
+size = Vector2(12, 14.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1tpn"]
+atlas = ExtResource("2_2kiy7")
+region = Rect2(0, 0, 45, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko7jh"]
+atlas = ExtResource("2_2kiy7")
+region = Rect2(45, 0, 45, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0jt4"]
+atlas = ExtResource("2_2kiy7")
+region = Rect2(0, 32, 45, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uege5"]
+atlas = ExtResource("2_2kiy7")
+region = Rect2(45, 32, 45, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1o0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1tpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko7jh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0jt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uege5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_4tdjr"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Shadow slime" type="CharacterBody2D"]
+z_index = 5
+collision_layer = 2
+script = ExtResource("1_ojn4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.75)
+shape = SubResource("RectangleShape2D_mtxrs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 5
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_p1o0t")
+autoplay = "default"
+frame_progress = 0.236163
+script = SubResource("GDScript_4tdjr")
