@@ -1,6 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtxap173gbrf2"]
+[gd_scene load_steps=9 format=3 uid="uid://dtxap173gbrf2"]
 
 [ext_resource type="Texture2D" uid="uid://ca7mxwjg6bsgs" path="res://assets/KinglyKnight (1).png" id="1_3sh8e"]
+[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_ojn4c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ebtj8"]
+radius = 5.0
+height = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xnb0"]
 atlas = ExtResource("1_3sh8e")
@@ -31,10 +36,27 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_4tdjr"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ojn4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ebtj8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eu401")
-frame_progress = 0.268569
+frame_progress = 0.714692
+script = SubResource("GDScript_4tdjr")
