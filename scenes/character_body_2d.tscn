@@ -1,40 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtxap173gbrf2"]
+[gd_scene load_steps=3 format=3 uid="uid://dtxap173gbrf2"]
 
-[ext_resource type="Texture2D" uid="uid://ca7mxwjg6bsgs" path="res://assets/KinglyKnight (1).png" id="1_3sh8e"]
+[ext_resource type="PackedScene" uid="uid://dtxap173gbrf2" path="res://scenes/character_body_2d.tscn" id="1_3iiht"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3xnb0"]
-atlas = ExtResource("1_3sh8e")
-region = Rect2(0, 0, 20, 20)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_woemb"]
+radius = 5.0
+height = 18.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ye23l"]
-atlas = ExtResource("1_3sh8e")
-region = Rect2(20, 0, 20, 20)
+[node name="CharacterBody2D" instance=ExtResource("1_3iiht")]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nilgm"]
-atlas = ExtResource("1_3sh8e")
-region = Rect2(0, 20, 20, 20)
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CapsuleShape2D_woemb")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_eu401"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3xnb0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ye23l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nilgm")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
-[node name="CharacterBody2D" type="CharacterBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_eu401")
-frame_progress = 0.268569
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(-1, -1)
