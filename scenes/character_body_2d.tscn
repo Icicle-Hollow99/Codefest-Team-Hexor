@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtxap173gbrf2"]
+
+[ext_resource type="Texture2D" uid="uid://ca7mxwjg6bsgs" path="res://assets/KinglyKnight (1).png" id="1_3sh8e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xnb0"]
+atlas = ExtResource("1_3sh8e")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye23l"]
+atlas = ExtResource("1_3sh8e")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nilgm"]
+atlas = ExtResource("1_3sh8e")
+region = Rect2(0, 20, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eu401"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xnb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye23l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nilgm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eu401")
+frame_progress = 0.268569
