@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s6mgolny4iow"
-path="res://.godot/imported/16x16BitBaseTiles.png-6d0e6043f1ccf29d08c9fc01c35b55ee.ctex"
+uid="uid://bx6vu1kxnprk8"
+path="res://.godot/imported/Shadow magus.png-a6ecfc75c773d839927e3a6b242fb7d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16BitBaseTiles.png"
-dest_files=["res://.godot/imported/16x16BitBaseTiles.png-6d0e6043f1ccf29d08c9fc01c35b55ee.ctex"]
+source_file="res://assets/Shadow magus.png"
+dest_files=["res://.godot/imported/Shadow magus.png-a6ecfc75c773d839927e3a6b242fb7d4.ctex"]
 
 [params]
 

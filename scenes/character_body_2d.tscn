@@ -1,39 +1,45 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtxap173gbrf2"]
+[gd_scene load_steps=10 format=3 uid="uid://dtxap173gbrf2"]
 
-[ext_resource type="Texture2D" uid="uid://ca7mxwjg6bsgs" path="res://assets/KinglyKnight (1).png" id="1_3sh8e"]
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_ojn4c"]
+[ext_resource type="Texture2D" uid="uid://bsub75y7tvx1y" path="res://assets/Shadow slime.png" id="2_2kiy7"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ebtj8"]
-radius = 5.0
-height = 20.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtxrs"]
+size = Vector2(17, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3xnb0"]
-atlas = ExtResource("1_3sh8e")
-region = Rect2(0, 0, 20, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1tpn"]
+atlas = ExtResource("2_2kiy7")
+region = Rect2(0, 0, 45, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ye23l"]
-atlas = ExtResource("1_3sh8e")
-region = Rect2(20, 0, 20, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko7jh"]
+atlas = ExtResource("2_2kiy7")
+region = Rect2(45, 0, 45, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nilgm"]
-atlas = ExtResource("1_3sh8e")
-region = Rect2(0, 20, 20, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0jt4"]
+atlas = ExtResource("2_2kiy7")
+region = Rect2(0, 32, 45, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_eu401"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uege5"]
+atlas = ExtResource("2_2kiy7")
+region = Rect2(45, 32, 45, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1o0t"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3xnb0")
+"texture": SubResource("AtlasTexture_k1tpn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ye23l")
+"texture": SubResource("AtlasTexture_ko7jh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nilgm")
+"texture": SubResource("AtlasTexture_o0jt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uege5")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 9.0
 }]
 
 [sub_resource type="GDScript" id="GDScript_4tdjr"]
@@ -51,12 +57,18 @@ func _process(delta: float) -> void:
 "
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 5
+collision_layer = 2
 script = ExtResource("1_ojn4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_ebtj8")
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_mtxrs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_eu401")
-frame_progress = 0.714692
+z_index = 5
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_p1o0t")
+autoplay = "default"
+frame_progress = 0.544831
 script = SubResource("GDScript_4tdjr")

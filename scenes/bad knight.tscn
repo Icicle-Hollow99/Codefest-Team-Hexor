@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://v0kb3144tola"]
+
+[ext_resource type="Script" path="res://scripts/bad_knight.gd" id="1_bvovo"]
+[ext_resource type="Texture2D" uid="uid://dkbaucmai0srn" path="res://assets/KinglyKnightofdark (1).png" id="1_tn0te"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0aqk"]
+size = Vector2(14, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr2wx"]
+atlas = ExtResource("1_tn0te")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkxg0"]
+atlas = ExtResource("1_tn0te")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7umh7"]
+atlas = ExtResource("1_tn0te")
+region = Rect2(0, 20, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fx3u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr2wx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkxg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7umh7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_bvovo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 5
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_i0aqk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1fx3u")
+autoplay = "default"
+frame_progress = 0.429927
