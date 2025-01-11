@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://wmg5fgo7mdlr"]
+
+[ext_resource type="Script" path="res://scripts/area_2d.gd" id="1_uxgvb"]
+[ext_resource type="Texture2D" uid="uid://42b6fwdnqhw0" path="res://assets/New Piskel (13).png" id="2_7ltvo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5hm2"]
+size = Vector2(35, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4h48"]
+atlas = ExtResource("2_7ltvo")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkwfr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4h48")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_uxgvb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -20)
+shape = SubResource("RectangleShape2D_k5hm2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -7)
+sprite_frames = SubResource("SpriteFrames_xkwfr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

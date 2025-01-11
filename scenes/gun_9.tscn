@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyft4g41anxpi"]
+
+[ext_resource type="Texture2D" uid="uid://drej4uv3bgm1t" path="res://assets/New Piskel (15).png" id="1_vcb4o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sk62"]
+atlas = ExtResource("1_vcb4o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4amq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sk62")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="gun9" type="AnimatableBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1.19209e-07)
+scale = Vector2(0.269531, 0.277344)
+sprite_frames = SubResource("SpriteFrames_f4amq")
+autoplay = "default"
+frame_progress = 0.899343
+flip_h = true

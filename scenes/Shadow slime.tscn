@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bsub75y7tvx1y" path="res://assets/Shadow slime.png" id="2_2kiy7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtxrs"]
-size = Vector2(17, 20)
+size = Vector2(12, 14.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1tpn"]
 atlas = ExtResource("2_2kiy7")
@@ -56,19 +56,19 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Shadow slime" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_ojn4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 3)
+position = Vector2(0, 0.75)
 shape = SubResource("RectangleShape2D_mtxrs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 5
-position = Vector2(0, -6)
+position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_p1o0t")
 autoplay = "default"
-frame_progress = 0.544831
+frame_progress = 0.236163
 script = SubResource("GDScript_4tdjr")
