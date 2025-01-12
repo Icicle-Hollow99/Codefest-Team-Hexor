@@ -1,3 +1,5 @@
+
+
 extends Area2D
 
 @export var destination: NodePath  # Declare the destination
@@ -5,7 +7,7 @@ extends Area2D
 # Assign the default value in the _ready function or in the editor
 func _ready():
 	if destination == null:
-		destination = "res://scenes/Portal B.tscn"
+		destination = "res://scenes/Portal.tscn"
 
 func _on_body_entered(body):
 	if body.name == "Shadow slime" and destination:
