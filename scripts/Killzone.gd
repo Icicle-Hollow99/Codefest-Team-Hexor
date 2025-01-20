@@ -1,18 +1,23 @@
-
-
 extends Area2D
 
-@export var destination: NodePath  # Declare the destination
+@export var destination: NodePath  # Assign portal node path in the inspector
 
-# Assign the default value in the _ready function or in the editor
 func _ready():
-	if destination == null:
-		destination = "res://scenes/Portal.tscn"
+	if destination.is_empty():
+		print("Warning: Destination portal not set in the editor!")
+	else:
+		print("Destination set to:", destination)
+
+	# Connect the signal if not connected already
+	if not self.body_entered.is_connected(_on_body_entered):
+		self.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body):
-	if body.name == "Shadow slime" and destination:
+	print("Body entered:", body.name)
+	if body.name == "Shadow slime" and not destination.is_empty():
 		var target_portal = get_node(destination)
 		if target_portal:
+			print("Teleporting to:", target_portal.global_position)
 			body.global_position = target_portal.global_position
 		else:
-			print("Error: Target portal not found at:", destination)
+			print("Error: Target portal not found:", destination)

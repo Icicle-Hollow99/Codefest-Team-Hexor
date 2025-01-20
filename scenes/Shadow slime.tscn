@@ -1,10 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtxap173gbrf2"]
+[gd_scene load_steps=12 format=3 uid="uid://dtxap173gbrf2"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_ojn4c"]
 [ext_resource type="Texture2D" uid="uid://bsub75y7tvx1y" path="res://assets/Shadow slime.png" id="2_2kiy7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtxrs"]
 size = Vector2(12, 14.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0jdo"]
+atlas = ExtResource("2_2kiy7")
+region = Rect2(90, 0, 90, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg2uj"]
+atlas = ExtResource("2_2kiy7")
+region = Rect2(0, 64, 90, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1tpn"]
 atlas = ExtResource("2_2kiy7")
@@ -24,6 +32,17 @@ region = Rect2(45, 32, 45, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p1o0t"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0jdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg2uj")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k1tpn")
@@ -69,6 +88,7 @@ shape = SubResource("RectangleShape2D_mtxrs")
 z_index = 5
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_p1o0t")
+animation = &"dash"
 autoplay = "default"
-frame_progress = 0.236163
+frame_progress = 0.904338
 script = SubResource("GDScript_4tdjr")
