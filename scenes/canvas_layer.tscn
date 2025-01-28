@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg6tannkhpmq3"]
+
+[ext_resource type="FontFile" uid="uid://bnvwueur5owje" path="res://assets/PixelOperator8-Bold.ttf" id="1_yxi7y"]
+[ext_resource type="Script" path="res://scripts/button.gd" id="2_b2m51"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_yxi7y")
+text = "Play"
+script = ExtResource("2_b2m51")
+
+[connection signal="pressed" from="CenterContainer/Button" to="CenterContainer/Button" method="_on_Button_pressed"]
